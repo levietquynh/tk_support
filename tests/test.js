@@ -52,10 +52,34 @@ step("Click <text>", async (text) => {
 
   step("Drag <textElement> into Dynamic Digest", async(textElement) => {
     await waitFor(1000)
-    await dragAndDrop((textElement), into($("//*[@class='dynamic-digest']")))
+    await dragAndDrop($("//div[@class='block-container' and text()='Header']"), into($("//*[@class='dynamic-digest']")))
     await waitFor(1000)
 })
 
-step("Enter <question> to Header", async (question) => {
-    await write(question, into($("(//*[@placeholder='Header'])[last()]")));
-  });
+step("Enter <text> to data-placeholder <placeholder>", async (text,placeholder) => {
+    await write(text, into($("(//*[@data-placeholder='"+placeholder+"'])[last()]")));
+});
+
+step("Enter <value> to Comment input", async (value) => {
+  await write(value, into($("//textarea[@placeholder='Add a comment...']")));
+})
+
+step("Click Commenting icon", async () => {
+  await click($("//*[@class='opacity-50']"))
+});
+
+step("Click Send button", async () => {
+  await click($("//button[text()='Send']"))
+});
+
+step("Hover to <text>", async (text) => {
+  await hover(text)
+});
+
+step("Click to Delete icon", async () => {
+  await click($("//*[@class='rc-tooltip-inner']//button[3]"))
+});
+
+step("Click Delete button", async () => {
+  await click($("//button[text()='Delete']"))
+});

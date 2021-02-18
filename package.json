@@ -15,7 +15,8 @@
     "taiko": "^1.0.16"
   },
   "devDependencies": {
-    "@getgauge/cli": "^1.0.8",
+    "@getgauge/cli": "^1.1.1",
+    "gauge": "^3.0.0",
     "taiko-screencast": "0.0.1",
     "faker": "4.1.0"
   }
